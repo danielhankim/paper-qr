@@ -1,5 +1,4 @@
 import argparse
-import sys
 from pathlib import Path
 import qrcode
 
@@ -22,14 +21,10 @@ def generate_qr(url: str, output: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate a QR code for a paper URL")
     parser.add_argument("url", help="URL of the paper")
-    parser.add_argument(
-        "-o", "--output",
-        default="qr_code.png",
-        help="Output file path (default: qr_code.png)",
-    )
+    parser.add_argument("filename", help="Output file name (e.g. my_paper.png)")
     args = parser.parse_args()
 
-    output_path = Path(args.output)
+    output_path = Path(args.filename)
     if output_path.suffix.lower() not in {".png", ".jpg", ".jpeg", ".bmp", ".gif"}:
         print(f"Warning: unusual file extension '{output_path.suffix}', defaulting to .png")
         output_path = output_path.with_suffix(".png")

@@ -11,13 +11,11 @@ uv sync
 ## Usage
 
 ```bash
-uv run generate_qr.py <URL> [-o output.png]
+uv run generate_qr.py <URL> <filename>
 ```
 
 **Example:**
 
 ```bash
-uv run generate_qr.py "https://journals.aps.org/pre/abstract/10.1103/pk8t-px35"
+uv run generate_qr.py "https://journals.aps.org/pre/abstract/10.1103/pk8t-px35" my_paper.png
 ```
-
-Saves `qr_code.png` by default. Use `-o` to specify a custom output path.
